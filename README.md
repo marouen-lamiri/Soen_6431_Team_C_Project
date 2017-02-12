@@ -18,7 +18,7 @@ We will perform maintainance on this project and fix software undesirables that 
 link: https://github.com/json-iterator/java
 
 ## Deliverable 1
-Link: Will be added soon, due Feb 10th.
+Link: https://docs.google.com/document/d/1fd9eWz0J_rl9egrTo8D_20fOMkGJZuccHBwMQHwjOlQ/edit?usp=sharing
 
 ## Deliverable 2
 Link: Will be added soon, due Mar 31st.
