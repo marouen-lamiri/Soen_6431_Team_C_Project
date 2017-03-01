@@ -11,6 +11,7 @@ class CodegenImplArray {
         add(Vector.class);
     }};
 
+    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     public static String genArray(Class clazz) {
         Class compType = clazz.getComponentType();
         if (compType.isArray()) {
@@ -85,6 +86,7 @@ class CodegenImplArray {
         }
     }
 
+    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     private static String genCollectionWithCapacity(Class clazz, Type compType) {
         StringBuilder lines = new StringBuilder();
         append(lines, "{{clazz}} col = ({{clazz}})com.jsoniter.CodegenAccess.resetExistingObject(iter);");
@@ -128,6 +130,7 @@ class CodegenImplArray {
                 "{{op}}", CodegenImplNative.genReadOp(compType));
     }
 
+    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     private static String genCollectionWithoutCapacity(Class clazz, Type compType) {
         StringBuilder lines = new StringBuilder();
         append(lines, "if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }");

@@ -35,15 +35,26 @@ class Codegen {
         return gen(cacheKey, type);
     }
 
-    private synchronized static Decoder gen(String cacheKey, Type type) {
-        Decoder decoder = JsoniterSpi.getDecoder(cacheKey);
+    //Marouen: too big of a method that seems to do more than one thing
+    //Lack of spacing that makes it very hard to read and understand.
+    //Missing comments to explain what is going on in this method
+    //Name of function is not very intuitive, rename it to generate(String cacheKey, Type type)
+    //Should be divided into atomic excecutions to become more readable (instead of adding comments)
+    private synchronized static Decoder gen(String cacheKey, Type type)
+    {
+       
+    	Decoder decoder = JsoniterSpi.getDecoder(cacheKey);
         if (decoder != null) {
             return decoder;
         }
+        
         List<Extension> extensions = JsoniterSpi.getExtensions();
         for (Extension extension : extensions) {
+        	//Marouen: Confusing (type = .. (type))
             type = extension.chooseImplementation(type);
         }
+        
+      //Marouen: Confusing (type = .. (type))
         type = chooseImpl(type);
         for (Extension extension : extensions) {
             decoder = extension.createDecoder(cacheKey, type);
@@ -52,52 +63,77 @@ class Codegen {
                 return decoder;
             }
         }
+        
         Type[] typeArgs = new Type[0];
         Class clazz;
-        if (type instanceof ParameterizedType) {
+        if (type instanceof ParameterizedType) 
+        {
             ParameterizedType pType = (ParameterizedType) type;
             clazz = (Class) pType.getRawType();
             typeArgs = pType.getActualTypeArguments();
-        } else {
+        } 
+        else
+        {
             clazz = (Class) type;
         }
+        
         decoder = CodegenImplNative.NATIVE_DECODERS.get(clazz);
-        if (decoder != null) {
+        if (decoder != null) 
+        {
             return decoder;
         }
-        if (mode == DecodingMode.REFLECTION_MODE) {
+        
+        if (mode == DecodingMode.REFLECTION_MODE) 
+        {
             decoder = ReflectionDecoderFactory.create(clazz, typeArgs);
             JsoniterSpi.addNewDecoder(cacheKey, decoder);
             return decoder;
         }
-        if (!isDoingStaticCodegen) {
-            try {
+        
+        if (!isDoingStaticCodegen) 
+        {
+            try 
+            {
                 decoder = (Decoder) Class.forName(cacheKey).newInstance();
                 JsoniterSpi.addNewDecoder(cacheKey, decoder);
                 return decoder;
-            } catch (Exception e) {
-                if (mode == DecodingMode.STATIC_MODE) {
+            } 
+            catch (Exception e) 
+            {
+                if (mode == DecodingMode.STATIC_MODE) 
+                {
                     throw new JsonException("static gen should provide the decoder we need, but failed to create the decoder", e);
                 }
             }
         }
+        
+        
         String source = genSource(clazz, typeArgs);
         source = "public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { "
                 + source + "}";
-        if ("true".equals(System.getenv("JSONITER_DEBUG"))) {
+        if ("true".equals(System.getenv("JSONITER_DEBUG"))) 
+        {
             System.out.println(">>> " + cacheKey);
             System.out.println(source);
         }
-        try {
+        
+        
+        try 
+        {
             generatedClassNames.add(cacheKey);
-            if (isDoingStaticCodegen) {
+            if (isDoingStaticCodegen) 
+            {
                 staticGen(cacheKey, source);
-            } else {
+            }
+            else 
+            {
                 decoder = DynamicCodegen.gen(cacheKey, source);
             }
             JsoniterSpi.addNewDecoder(cacheKey, decoder);
             return decoder;
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
             String msg = "failed to generate decoder for: " + type + " with " + Arrays.toString(typeArgs) + ", exception: " + e;
             msg = msg + "\n" + source;
             throw new JsonException(msg, e);
@@ -108,35 +144,55 @@ class Codegen {
         return generatedClassNames.contains(cacheKey);
     }
 
+    //Marouen: Lack of spacing that makes it very hard to read and understand.
     private static Type chooseImpl(Type type) {
         Type[] typeArgs = new Type[0];
         Class clazz;
-        if (type instanceof ParameterizedType) {
+        if (type instanceof ParameterizedType) 
+        {
             ParameterizedType pType = (ParameterizedType) type;
             clazz = (Class) pType.getRawType();
             typeArgs = pType.getActualTypeArguments();
-        } else {
+        } 
+        else 
+        {
             clazz = (Class) type;
         }
+        
+        //Marouen: Empty if statement, a bad code smell
         Class implClazz = JsoniterSpi.getTypeImplementation(clazz);
-        if (Collection.class.isAssignableFrom(clazz)) {
+        if (Collection.class.isAssignableFrom(clazz)) 
+        {
             Type compType = Object.class;
-            if (typeArgs.length == 0) {
+            if (typeArgs.length == 0) 
+            {
                 // default to List<Object>
-            } else if (typeArgs.length == 1) {
+            } 
+            else if (typeArgs.length == 1) 
+            {
                 compType = typeArgs[0];
-            } else {
+            } 
+            else 
+            {
                 throw new IllegalArgumentException(
                         "can not bind to generic collection without argument types, " +
                                 "try syntax like TypeLiteral<List<Integer>>{}");
             }
-            if (clazz == List.class) {
+            
+            if (clazz == List.class) 
+            {
                 clazz = implClazz == null ? ArrayList.class : implClazz;
-            } else if (clazz == Set.class) {
+            } 
+            else if (clazz == Set.class) 
+            {
                 clazz = implClazz == null ? HashSet.class : implClazz;
             }
-            return new ParameterizedTypeImpl(new Type[]{compType}, null, clazz);
+            return new ParameterizedTypeImpl(new Type[]{compType}, null, clazz);  
         }
+        
+        //Marouen: Duplicated code (very similar code than the above)
+        //Differences is that we go from List<Integer> to map<String, String>
+        //Maybe we can improve it.
         if (Map.class.isAssignableFrom(clazz)) {
             Type keyType = String.class;
             Type valueType = Object.class;

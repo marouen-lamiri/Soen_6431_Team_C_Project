@@ -6,6 +6,7 @@ import java.util.Map;
 
 class CodegenImplMap {
 
+	//Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     public static String genMap(Class clazz, Type[] typeArgs) {
         Type valueType = typeArgs[1];
         StringBuilder lines = new StringBuilder();
