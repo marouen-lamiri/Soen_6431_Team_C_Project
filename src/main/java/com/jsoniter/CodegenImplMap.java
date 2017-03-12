@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-class CodegenImplMap {
+class CodegenImplMap extends CodegenBase {
 
 	//Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     public static String genMap(Class clazz, Type[] typeArgs) {
@@ -22,10 +22,5 @@ class CodegenImplMap {
         append(lines, "} while (com.jsoniter.CodegenAccess.nextToken(iter) == ',');");
         append(lines, "return map;");
         return lines.toString().replace("{{clazz}}", clazz.getName()).replace("{{op}}", CodegenImplNative.genReadOp(valueType));
-    }
-
-    private static void append(StringBuilder lines, String str) {
-        lines.append(str);
-        lines.append("\n");
     }
 }

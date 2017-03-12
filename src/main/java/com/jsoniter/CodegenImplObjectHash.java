@@ -4,7 +4,7 @@ import com.jsoniter.spi.*;
 
 import java.util.*;
 
-public class CodegenImplObjectHash {
+public class CodegenImplObjectHash extends CodegenBase {
 
     // the implementation is from dsljson, it is the fastest although has the risk not matching field strictly
     public static String genObjectUsingHash(Class clazz, ClassDescriptor desc) {
@@ -114,24 +114,6 @@ public class CodegenImplObjectHash {
         return (int) hash;
     }
 
-    private static void appendBindingSet(StringBuilder lines, ClassDescriptor desc, Binding binding) {
-        append(lines, String.format("_%s_ = %s;", binding.name, CodegenImplNative.genField(binding)));
-    }
-
-    static void appendWrappers(List<WrapperDescriptor> wrappers, StringBuilder lines) {
-        for (WrapperDescriptor wrapper : wrappers) {
-            lines.append("obj.");
-            lines.append(wrapper.method.getName());
-            appendInvocation(lines, wrapper.parameters);
-            lines.append(";\n");
-        }
-    }
-
-    static void appendVarDef(StringBuilder lines, Binding parameter) {
-        String typeName = CodegenImplNative.getTypeName(parameter.valueType);
-        append(lines, String.format("%s _%s_ = %s;", typeName, parameter.name, CodegenImplObjectStrict.DEFAULT_VALUES.get(typeName)));
-    }
-
     static String genNewInstCode(Class clazz, ConstructorDescriptor ctor) {
         StringBuilder code = new StringBuilder();
         if (ctor.parameters.isEmpty()) {
@@ -158,24 +140,4 @@ public class CodegenImplObjectHash {
         }
         return code.toString();
     }
-
-    private static void appendInvocation(StringBuilder code, List<Binding> params) {
-        code.append("(");
-        boolean isFirst = true;
-        for (Binding ctorParam : params) {
-            if (isFirst) {
-                isFirst = false;
-            } else {
-                code.append(",");
-            }
-            code.append(String.format("_%s_", ctorParam.name));
-        }
-        code.append(")");
-    }
-
-    static void append(StringBuilder lines, String str) {
-        lines.append(str);
-        lines.append("\n");
-    }
-
 }

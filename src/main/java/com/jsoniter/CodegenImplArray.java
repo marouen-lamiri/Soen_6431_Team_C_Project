@@ -3,7 +3,7 @@ package com.jsoniter;
 import java.lang.reflect.Type;
 import java.util.*;
 
-class CodegenImplArray {
+class CodegenImplArray extends CodegenBase {
 
     final static Set<Class> WITH_CAPACITY_COLLECTION_CLASSES = new HashSet<Class>() {{
         add(ArrayList.class);
@@ -11,7 +11,7 @@ class CodegenImplArray {
         add(Vector.class);
     }};
 
-    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
+    //Marouen: WOW TO REVIEW, writing code in a string is definitely weird
     public static String genArray(Class clazz) {
         Class compType = clazz.getComponentType();
         if (compType.isArray()) {
@@ -130,7 +130,7 @@ class CodegenImplArray {
                 "{{op}}", CodegenImplNative.genReadOp(compType));
     }
 
-    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
+    //Marouen: WOW TO REVIEW, writing code in a string is definitely weird
     private static String genCollectionWithoutCapacity(Class clazz, Type compType) {
         StringBuilder lines = new StringBuilder();
         append(lines, "if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }");
@@ -173,10 +173,5 @@ class CodegenImplArray {
         return lines.toString().replace(
                 "{{clazz}}", clazz.getName()).replace(
                 "{{op}}", CodegenImplNative.genReadOp(compType));
-    }
-
-    private static void append(StringBuilder lines, String str) {
-        lines.append(str);
-        lines.append("\n");
     }
 }

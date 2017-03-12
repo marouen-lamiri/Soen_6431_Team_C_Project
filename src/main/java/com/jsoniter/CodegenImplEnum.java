@@ -2,7 +2,7 @@ package com.jsoniter;
 
 import java.util.*;
 
-class CodegenImplEnum {
+class CodegenImplEnum extends CodegenBase{
 	//Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     public static String genEnum(Class clazz) {
         StringBuilder lines = new StringBuilder();
@@ -86,10 +86,5 @@ class CodegenImplEnum {
             addFieldDispatch(lines, len, i + 1, next, new ArrayList<Byte>());
             append(lines, "}");
         }
-    }
-
-    private static void append(StringBuilder lines, String str) {
-        lines.append(str);
-        lines.append("\n");
     }
 }

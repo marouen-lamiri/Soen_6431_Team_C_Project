@@ -30,7 +30,7 @@ class ReflectionCollectionDecoder implements Decoder {
             throw new JsonException(e);
         }
     }
-
+    
     private Object decode_(JsonIterator iter) throws Exception {
         Collection col = (Collection) CodegenAccess.resetExistingObject(iter);
         if (iter.readNull()) {

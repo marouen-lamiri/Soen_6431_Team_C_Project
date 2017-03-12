@@ -1,5 +1,6 @@
 package com.jsoniter;
 
+
 import junit.framework.TestCase;
 
 import java.io.IOException;

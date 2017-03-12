@@ -7,7 +7,7 @@ import java.util.*;
 import static com.jsoniter.CodegenImplObjectHash.appendVarDef;
 import static com.jsoniter.CodegenImplObjectHash.appendWrappers;
 
-class CodegenImplObjectStrict {
+class CodegenImplObjectStrict extends CodegenBase {
 
     final static Map<String, String> DEFAULT_VALUES = new HashMap<String, String>() {{
         put("float", "0.0f");
@@ -337,10 +337,5 @@ class CodegenImplObjectStrict {
         return lines.toString()
                 .replace("{{clazz}}", clazz.getCanonicalName())
                 .replace("{{newInst}}", CodegenImplObjectHash.genNewInstCode(clazz, ctor));
-    }
-    
-    static void append(StringBuilder lines, String str) {
-        lines.append(str);
-        lines.append("\n");
     }
 }
