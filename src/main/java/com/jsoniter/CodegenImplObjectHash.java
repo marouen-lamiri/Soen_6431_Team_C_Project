@@ -106,10 +106,10 @@ public class CodegenImplObjectHash extends CodegenBase {
     }
 
     public static int calcHash(String fromName) {
-        long hash = 0x811c9dc5;
+        long hash = Utility.FNV_PRIME;
         for (byte b : fromName.getBytes()) {
             hash ^= b;
-            hash *= 0x1000193;
+            hash *= Utility.FNV_MULTIPLIER;
         }
         return (int) hash;
     }

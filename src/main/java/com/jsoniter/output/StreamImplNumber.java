@@ -31,6 +31,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package com.jsoniter.output;
 
+import com.jsoniter.Utility;
+
 import java.io.IOException;
 
 class StreamImplNumber {
@@ -212,19 +214,17 @@ class StreamImplNumber {
         stream.count = pos + 15;
     }
 
-    private static final int POW10[] = {1, 10, 100, 1000, 10000, 100000, 1000000};
-
     public static final void writeFloat(JsonStream stream, float val) throws IOException {
         if (val < 0) {
             stream.write('-');
             val = -val;
         }
-        if (val > 0x4ffffff) {
+        if (val > Utility.BASEVALUE_16) {
             stream.writeRaw(Float.toString(val));
             return;
         }
         int precision = 6;
-        int exp = 1000000; // 6
+        int exp = (int) Utility.POW10[6]; // 6
         long lval = (long)(val * exp + 0.5);
         stream.writeVal(lval / exp);
         long fval = lval % exp;
@@ -235,7 +235,7 @@ class StreamImplNumber {
         if (stream.buf.length - stream.count < 10) {
             stream.flushBuffer();
         }
-        for (int p = precision - 1; p > 0 && fval < POW10[p]; p--) {
+        for (int p = precision - 1; p > 0 && fval < Utility.POW10[p]; p--) {
             stream.buf[stream.count++] = '0';
         }
         stream.writeVal(fval);
@@ -249,12 +249,12 @@ class StreamImplNumber {
             val = -val;
             stream.write('-');
         }
-        if (val > 0x4ffffff) {
+        if (val > Utility.BASEVALUE_16) {
             stream.writeRaw(Double.toString(val));
             return;
         }
         int precision = 6;
-        int exp = 1000000; // 6
+        int exp = (int) Utility.POW10[6]; // 6
         long lval = (long)(val * exp + 0.5);
         stream.writeVal(lval / exp);
         long fval = lval % exp;
@@ -265,7 +265,7 @@ class StreamImplNumber {
         if (stream.buf.length - stream.count < 10) {
             stream.flushBuffer();
         }
-        for (int p = precision - 1; p > 0 && fval < POW10[p]; p--) {
+        for (int p = precision - 1; p > 0 && fval < Utility.POW10[p]; p--) {
             stream.buf[stream.count++] = '0';
         }
         stream.writeVal(fval);

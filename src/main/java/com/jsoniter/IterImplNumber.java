@@ -35,32 +35,6 @@ import java.io.IOException;
 
 class IterImplNumber {
 
-    final static int[] intDigits = new int[127];
-    final static int[] floatDigits = new int[127];
-    final static int END_OF_NUMBER = -2;
-    final static int DOT_IN_NUMBER = -3;
-    final static int INVALID_CHAR_FOR_NUMBER = -1;
-    static final long POW10[] = {
-            1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000,
-            1000000000, 10000000000L, 100000000000L, 1000000000000L,
-            10000000000000L, 100000000000000L, 1000000000000000L};
-
-    static {
-        for (int i = 0; i < floatDigits.length; i++) {
-            floatDigits[i] = INVALID_CHAR_FOR_NUMBER;
-            intDigits[i] = INVALID_CHAR_FOR_NUMBER;
-        }
-        for (int i = '0'; i <= '9'; ++i) {
-            floatDigits[i] = (i - '0');
-            intDigits[i] = (i - '0');
-        }
-        floatDigits[','] = END_OF_NUMBER;
-        floatDigits[']'] = END_OF_NUMBER;
-        floatDigits['}'] = END_OF_NUMBER;
-        floatDigits[' '] = END_OF_NUMBER;
-        floatDigits['.'] = DOT_IN_NUMBER;
-    }
-
     public static final double readDouble(final JsonIterator iter) throws IOException {
         final byte c = IterImpl.nextToken(iter);
         if (c == '-') {

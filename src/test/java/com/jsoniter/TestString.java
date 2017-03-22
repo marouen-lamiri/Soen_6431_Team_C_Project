@@ -63,7 +63,8 @@ public class TestString extends TestCase {
 
     @org.junit.experimental.categories.Category(StreamingCategory.class)
     public void test_utf8() throws IOException {
-        byte[] bytes = {'"', (byte) 0xe4, (byte) 0xb8, (byte) 0xad, (byte) 0xe6, (byte) 0x96, (byte) 0x87, '"'};
+        byte[] bytes = {'"', (byte) Utility.HEX_DECIMAL_228, (byte) Utility.HEX_DECIMAL_184, (byte) Utility.HEX_DECIMAL_173, (byte) Utility.HEX_DECIMAL_230,
+                (byte) Utility.HEX_DECIMAL_150, (byte) Utility.HEX_DECIMAL_135, '"'};
         JsonIterator iter = JsonIterator.parse(new ByteArrayInputStream(bytes), 2);
         assertEquals("中文", iter.readString());
     }

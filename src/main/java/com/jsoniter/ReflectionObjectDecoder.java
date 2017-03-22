@@ -50,10 +50,10 @@ class ReflectionObjectDecoder {
                 addBinding(clazz, param);
             }
         }
-        if (requiredIdx > 63) {
+        if (requiredIdx > Utility.LIMIT_VALUE) {
             throw new JsonException("too many required properties to track");
         }
-        expectedTracker = Long.MAX_VALUE >> (63 - requiredIdx);
+        expectedTracker = Long.MAX_VALUE >> (Utility.LIMIT_VALUE - requiredIdx);
         if (!desc.ctor.parameters.isEmpty() || !desc.wrappers.isEmpty()) {
             tempCount = tempIdx;
             tempCacheKey = "temp@" + clazz.getCanonicalName();

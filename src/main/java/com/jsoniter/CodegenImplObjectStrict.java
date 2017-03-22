@@ -24,7 +24,7 @@ class CodegenImplObjectStrict extends CodegenBase {
         List<Binding> allBindings = desc.allDecoderBindings();
         int lastRequiredIdx = assignMaskForRequiredProperties(allBindings);
         boolean hasRequiredBinding = lastRequiredIdx > 0;
-        long expectedTracker = Long.MAX_VALUE >> (63 - lastRequiredIdx);
+        long expectedTracker = Long.MAX_VALUE >> (Utility.LIMIT_VALUE - lastRequiredIdx);
         Map<Integer, Object> trieTree = buildTriTree(allBindings);
         StringBuilder lines = new StringBuilder();
         /*
@@ -168,7 +168,7 @@ class CodegenImplObjectStrict extends CodegenBase {
                 requiredIdx++;
             }
         }
-        if (requiredIdx > 63) {
+        if (requiredIdx > Utility.LIMIT_VALUE) {
             throw new JsonException("too many required properties to track");
         }
         return requiredIdx;

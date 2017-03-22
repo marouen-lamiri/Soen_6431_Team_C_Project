@@ -1,7 +1,7 @@
 package com.jsoniter;
 
 import com.jsoniter.any.Any;
-
+import com.jsoniter.Utility;
 import java.io.IOException;
 
 class IterImplForStreaming {
@@ -470,8 +470,8 @@ class IterImplForStreaming {
     static long readLongSlowPath(JsonIterator iter, long value) throws IOException {
         for (; ; ) {
             for (int i = iter.head; i < iter.tail; i++) {
-                int ind = IterImplNumber.intDigits[iter.buf[i]];
-                if (ind == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+                int ind = Utility.intDigits[iter.buf[i]];
+                if (ind == Utility.INVALID_CHAR_FOR_NUMBER) {
                     iter.head = i;
                     return value;
                 }
@@ -497,8 +497,8 @@ class IterImplForStreaming {
     static int readIntSlowPath(JsonIterator iter, int value) throws IOException {
         for (; ; ) {
             for (int i = iter.head; i < iter.tail; i++) {
-                int ind = IterImplNumber.intDigits[iter.buf[i]];
-                if (ind == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+                int ind = Utility.intDigits[iter.buf[i]];
+                if (ind == Utility.INVALID_CHAR_FOR_NUMBER) {
                     iter.head = i;
                     return value;
                 }
@@ -575,22 +575,22 @@ class IterImplForStreaming {
 
 
     static final long readPositiveLong(final JsonIterator iter, byte c) throws IOException {
-        long ind = IterImplNumber.intDigits[c];
+        long ind = Utility.intDigits[c];
         if (ind == 0) {
             return 0;
         }
-        if (ind == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+        if (ind == Utility.INVALID_CHAR_FOR_NUMBER) {
             throw iter.reportError("readPositiveLong", "expect 0~9");
         }
         return IterImplForStreaming.readLongSlowPath(iter, ind);
     }
 
     static final int readPositiveInt(final JsonIterator iter, byte c) throws IOException {
-        int ind = IterImplNumber.intDigits[c];
+        int ind = Utility.intDigits[c];
         if (ind == 0) {
             return 0;
         }
-        if (ind == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+        if (ind == Utility.INVALID_CHAR_FOR_NUMBER) {
             throw iter.reportError("readPositiveInt", "expect 0~9");
         }
         return IterImplForStreaming.readIntSlowPath(iter, ind);

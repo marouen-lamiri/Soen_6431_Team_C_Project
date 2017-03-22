@@ -2,6 +2,7 @@ package com.jsoniter;
 
 import com.jsoniter.any.Any;
 import com.jsoniter.spi.JsonException;
+import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ class IterImpl {
                 throw iter.reportError("readObjectFieldAsHash", "expect \"");
             }
         }
-        long hash = 0x811c9dc5;
+        long hash = Utility.FNV_PRIME;
         int i = iter.head;
         for (; i < iter.tail; i++) {
             byte c = iter.buf[i];
@@ -21,7 +22,7 @@ class IterImpl {
                 break;
             }
             hash ^= c;
-            hash *= 0x1000193;
+            hash *= Utility.FNV_MULTIPLIER;
         }
         iter.head = i + 1;
         if (readByte(iter) != ':') {
@@ -247,41 +248,41 @@ class IterImpl {
                         default:
                             throw iter.reportError("readStringSlowPath", "invalid escape character: " + bc);
                     }
-                } else if ((bc & 0x80) != 0) {
+                } else if ((bc & Utility.HEX_DECIMAL_128) != 0) {
                     final int u2 = iter.buf[i++];
-                    if ((bc & 0xE0) == 0xC0) {
-                        bc = ((bc & 0x1F) << 6) + (u2 & 0x3F);
+                    if ((bc & Utility.HEX_DECIMAL_224) == Utility.HEX_DECIMAL_192) {
+                        bc = ((bc & (int) Utility.HEX_DECIMAL_31) << 6) + (u2 & (int) Utility.HEX_DECIMAL_64);
                     } else {
                         final int u3 = iter.buf[i++];
-                        if ((bc & 0xF0) == 0xE0) {
-                            bc = ((bc & 0x0F) << 12) + ((u2 & 0x3F) << 6) + (u3 & 0x3F);
+                        if ((bc & (int) Utility.HEX_DECIMAL_240) == Utility.HEX_DECIMAL_224) {
+                            bc = ((bc & (int) Utility.HEX_DECIMAL_15) << 12) + ((u2 & (int) Utility.HEX_DECIMAL_64) << 6) + (u3 & (int) Utility.HEX_DECIMAL_64);
                         } else {
                             final int u4 = iter.buf[i++];
-                            if ((bc & 0xF8) == 0xF0) {
-                                bc = ((bc & 0x07) << 18) + ((u2 & 0x3F) << 12) + ((u3 & 0x3F) << 6) + (u4 & 0x3F);
+                            if ((bc & (int) Utility.HEX_DECIMAL_248 ) == (int) Utility.HEX_DECIMAL_240) {
+                                bc = ((bc & (int) Utility.HEX_DECIMAL_7) << 18) + ((u2 & (int) Utility.HEX_DECIMAL_64) << 12) + ((u3 & (int) Utility.HEX_DECIMAL_64) << 6) + (u4 & (int) Utility.HEX_DECIMAL_64);
                             } else {
                                 throw iter.reportError("readStringSlowPath", "invalid unicode character");
                             }
 
-                            if (bc >= 0x10000) {
+                            if (bc >= Utility.HEX_DECIMAL_65536) {
                                 // check if valid unicode
-                                if (bc >= 0x110000)
+                                if (bc >= Utility.HEX_DECIMAL_1114112)
                                     throw iter.reportError("readStringSlowPath", "invalid unicode character");
 
                                 // split surrogates
-                                final int sup = bc - 0x10000;
+                                final int sup = bc - (int) Utility.HEX_DECIMAL_65536;
                                 if (iter.reusableChars.length == j) {
                                     char[] newBuf = new char[iter.reusableChars.length * 2];
                                     System.arraycopy(iter.reusableChars, 0, newBuf, 0, iter.reusableChars.length);
                                     iter.reusableChars = newBuf;
                                 }
-                                iter.reusableChars[j++] = (char) ((sup >>> 10) + 0xd800);
+                                iter.reusableChars[j++] = (char) ((sup >>> 10) + Utility.HEX_DECIMAL_55296);
                                 if (iter.reusableChars.length == j) {
                                     char[] newBuf = new char[iter.reusableChars.length * 2];
                                     System.arraycopy(iter.reusableChars, 0, newBuf, 0, iter.reusableChars.length);
                                     iter.reusableChars = newBuf;
                                 }
-                                iter.reusableChars[j++] = (char) ((sup & 0x3ff) + 0xdc00);
+                                iter.reusableChars[j++] = (char) ((sup & Utility.HEX_DECIMAL_1023) + Utility.HEX_DECIMAL_56320);
                                 continue;
                             }
                         }
@@ -305,54 +306,57 @@ class IterImpl {
     }
 
     static final int readPositiveInt(final JsonIterator iter, byte c) throws IOException {
-        int ind = IterImplNumber.intDigits[c];
+        int ind = Utility.intDigits[c];
         if (ind == 0) {
             return 0;
         }
-        if (ind == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+        if (ind == Utility.INVALID_CHAR_FOR_NUMBER) {
             throw iter.reportError("readPositiveInt", "expect 0~9");
         }
-        if (iter.tail - iter.head > 9) {
+        if (iter.tail - iter.head > Utility.LIMIT_DIGIT) {
             int i = iter.head;
-            int ind2 = IterImplNumber.intDigits[iter.buf[i]];
-            if (ind2 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind2 = Utility.intDigits[iter.buf[i]];
+            if (ind2 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
                 return ind;
             }
-            int ind3 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind3 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind3 = Utility.intDigits[iter.buf[++i]];
+            if (ind3 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 10 + ind2;
+                return (int) (ind * Utility.POW10[1] + ind2);
             }
-            int ind4 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind4 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind4 = Utility.intDigits[iter.buf[++i]];
+            if (ind4 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 100 + ind2 * 10 + ind3;
+                return (int) (ind * Utility.POW10[2] + ind2 * Utility.POW10[1] + ind3);
             }
-            int ind5 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind5 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind5 = Utility.intDigits[iter.buf[++i]];
+            if (ind5 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 1000 + ind2 * 100 + ind3 * 10 + ind4;
+                return (int) (ind * Utility.POW10[3] + ind2 * Utility.POW10[2] + ind3 * Utility.POW10[1] + ind4);
             }
-            int ind6 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind6 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind6 = Utility.intDigits[iter.buf[++i]];
+            if (ind6 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 10000 + ind2 * 1000 + ind3 * 100 + ind4 * 10 + ind5;
+                return (int) (ind * Utility.POW10[4] + ind2 * Utility.POW10[3] + ind3 * Utility.POW10[2] + ind4 * Utility.POW10[1] + ind5);
             }
-            int ind7 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind7 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind7 = Utility.intDigits[iter.buf[++i]];
+            if (ind7 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 100000 + ind2 * 10000 + ind3 * 1000 + ind4 * 100 + ind5 * 10 + ind6;
+                return (int) (ind * Utility.POW10[5] + ind2 * Utility.POW10[4] + ind3 * Utility.POW10[3]
+                        + ind4 * Utility.POW10[2] + ind5 * Utility.POW10[1] + ind6);
             }
-            int ind8 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind8 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind8 = Utility.intDigits[iter.buf[++i]];
+            if (ind8 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 1000000 + ind2 * 100000 + ind3 * 10000 + ind4 * 1000 + ind5 * 100 + ind6 * 10 + ind7;
+                return (int) (ind * Utility.POW10[6] + ind2 * Utility.POW10[5] + ind3 * Utility.POW10[4]
+                        + ind4 * Utility.POW10[3] + ind5 * Utility.POW10[2] + ind6 * Utility.POW10[1] + ind7);
             }
-            int ind9 = IterImplNumber.intDigits[iter.buf[++i]];
-            ind = ind * 10000000 + ind2 * 1000000 + ind3 * 100000 + ind4 * 10000 + ind5 * 1000 + ind6 * 100 + ind7 * 10 + ind8;
+            int ind9 = Utility.intDigits[iter.buf[++i]];
+            ind = (int) ( ind * Utility.POW10[7] + ind2 * Utility.POW10[6] + ind3 * Utility.POW10[5] + ind4 * Utility.POW10[4]
+                    + ind5 * Utility.POW10[3] + ind6 * Utility.POW10[2] + ind7 * Utility.POW10[1] + ind8);
             iter.head = i;
-            if (ind9 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            if (ind9 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 return ind;
             }
         }
@@ -360,54 +364,54 @@ class IterImpl {
     }
 
     static final long readPositiveLong(final JsonIterator iter, byte c) throws IOException {
-        long ind = IterImplNumber.intDigits[c];
+        long ind = Utility.intDigits[c];
         if (ind == 0) {
             return 0;
         }
-        if (ind == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+        if (ind == Utility.INVALID_CHAR_FOR_NUMBER) {
             throw iter.reportError("readPositiveLong", "expect 0~9");
         }
-        if (iter.tail - iter.head > 9) {
+        if (iter.tail - iter.head > Utility.LIMIT_DIGIT) {
             int i = iter.head;
-            int ind2 = IterImplNumber.intDigits[iter.buf[i]];
-            if (ind2 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind2 = Utility.intDigits[iter.buf[i]];
+            if (ind2 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
                 return ind;
             }
-            int ind3 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind3 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind3 = Utility.intDigits[iter.buf[++i]];
+            if (ind3 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 10 + ind2;
+                return ind * Utility.POW10[1] + ind2;
             }
-            int ind4 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind4 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind4 = Utility.intDigits[iter.buf[++i]];
+            if (ind4 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 100 + ind2 * 10 + ind3;
+                return ind * Utility.POW10[2] + ind2 * Utility.POW10[1] + ind3;
             }
-            int ind5 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind5 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind5 = Utility.intDigits[iter.buf[++i]];
+            if (ind5 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 1000 + ind2 * 100 + ind3 * 10 + ind4;
+                return ind * Utility.POW10[3] + ind2 * Utility.POW10[2] + ind3 * Utility.POW10[1] + ind4;
             }
-            int ind6 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind6 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind6 = Utility.intDigits[iter.buf[++i]];
+            if (ind6 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 10000 + ind2 * 1000 + ind3 * 100 + ind4 * 10 + ind5;
+                return ind * Utility.POW10[4] + ind2 * Utility.POW10[3] + ind3 * Utility.POW10[2] + ind4 * Utility.POW10[1] + ind5;
             }
-            int ind7 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind7 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind7 = Utility.intDigits[iter.buf[++i]];
+            if (ind7 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 100000 + ind2 * 10000 + ind3 * 1000 + ind4 * 100 + ind5 * 10 + ind6;
+                return ind * Utility.POW10[5] + ind2 * Utility.POW10[4] + ind3 * Utility.POW10[3] + ind4 * Utility.POW10[2] + ind5 * Utility.POW10[1] + ind6;
             }
-            int ind8 = IterImplNumber.intDigits[iter.buf[++i]];
-            if (ind8 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            int ind8 = Utility.intDigits[iter.buf[++i]];
+            if (ind8 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 iter.head = i;
-                return ind * 1000000 + ind2 * 100000 + ind3 * 10000 + ind4 * 1000 + ind5 * 100 + ind6 * 10 + ind7;
+                return ind * Utility.POW10[6] + ind2 * Utility.POW10[5] + ind3 * Utility.POW10[4] + ind4 * Utility.POW10[3] + ind5 * Utility.POW10[2] + ind6 * Utility.POW10[1] + ind7;
             }
-            int ind9 = IterImplNumber.intDigits[iter.buf[++i]];
-            ind = ind * 10000000 + ind2 * 1000000 + ind3 * 100000 + ind4 * 10000 + ind5 * 1000 + ind6 * 100 + ind7 * 10 + ind8;
+            int ind9 = Utility.intDigits[iter.buf[++i]];
+            ind = ind * Utility.POW10[7] + ind2 * Utility.POW10[6] + ind3 * Utility.POW10[5] + ind4 * Utility.POW10[4] + ind5 * Utility.POW10[3] + ind6 * Utility.POW10[2] + ind7 * Utility.POW10[1] + ind8;
             iter.head = i;
-            if (ind9 == IterImplNumber.INVALID_CHAR_FOR_NUMBER) {
+            if (ind9 == Utility.INVALID_CHAR_FOR_NUMBER) {
                 return ind;
             }
         }
@@ -428,9 +432,9 @@ class IterImpl {
                 c = iter.buf[iter.head++];
                 long decimalPart = readPositiveLong(iter, c);
                 int decimalPlaces = iter.head - start;
-                if (decimalPlaces > 0 && decimalPlaces < IterImplNumber.POW10.length && (iter.head - oldHead) < 10) {
-                    value = value * IterImplNumber.POW10[decimalPlaces] + decimalPart;
-                    return value / (double) IterImplNumber.POW10[decimalPlaces];
+                if (decimalPlaces > 0 && decimalPlaces < Utility.POW10.length && (iter.head - oldHead) < 10) {
+                    value = value * Utility.POW10[decimalPlaces] + decimalPart;
+                    return value / (double) Utility.POW10[decimalPlaces];
                 } else {
                     iter.head = oldHead;
                     return IterImplForStreaming.readDoubleSlowPath(iter);
