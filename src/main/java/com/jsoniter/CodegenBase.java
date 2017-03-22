@@ -4,9 +4,20 @@ import com.jsoniter.spi.Binding;
 import com.jsoniter.spi.ClassDescriptor;
 import com.jsoniter.spi.WrapperDescriptor;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class CodegenBase {
+
+    public static String gen(Class clazz)
+    {
+        return "";
+    }
+
+    public static String gen(Class clazz, Type[] typeArgs)
+    {
+        return gen( clazz );
+    }
 
     protected static void append(StringBuilder lines, String str) {
         lines.append(str);
@@ -29,7 +40,7 @@ public class CodegenBase {
 
     protected static void appendVarDef(StringBuilder lines, Binding parameter) {
         String typeName = CodegenImplNative.getTypeName(parameter.valueType);
-        append(lines, String.format("%s _%s_ = %s;", typeName, parameter.name, CodegenImplObjectStrict.DEFAULT_VALUES.get(typeName)));
+        append(lines, String.format("%s _%s_ = %s;", typeName, parameter.name, Utility.DEFAULT_VALUES.get(typeName)));
     }
 
     protected static void appendBindingSet(StringBuilder lines, ClassDescriptor desc, Binding binding) {

@@ -4,23 +4,9 @@ import com.jsoniter.spi.*;
 
 import java.util.*;
 
-import static com.jsoniter.CodegenImplObjectHash.appendVarDef;
-import static com.jsoniter.CodegenImplObjectHash.appendWrappers;
-
 class CodegenImplObjectStrict extends CodegenBase {
 
-    final static Map<String, String> DEFAULT_VALUES = new HashMap<String, String>() {{
-        put("float", "0.0f");
-        put("double", "0.0d");
-        put("boolean", "false");
-        put("byte", "0");
-        put("short", "0");
-        put("int", "0");
-        put("char", "0");
-        put("long", "0");
-    }};
-
-    public static String genObjectUsingStrict(Class clazz, ClassDescriptor desc) {
+    public static String gen(Class clazz, ClassDescriptor desc) {
         List<Binding> allBindings = desc.allDecoderBindings();
         int lastRequiredIdx = assignMaskForRequiredProperties(allBindings);
         boolean hasRequiredBinding = lastRequiredIdx > 0;

@@ -5,14 +5,8 @@ import java.util.*;
 
 class CodegenImplArray extends CodegenBase {
 
-    final static Set<Class> WITH_CAPACITY_COLLECTION_CLASSES = new HashSet<Class>() {{
-        add(ArrayList.class);
-        add(HashSet.class);
-        add(Vector.class);
-    }};
 
-    //Marouen: WOW TO REVIEW, writing code in a string is definitely weird
-    public static String genArray(Class clazz) {
+    public static String gen(Class clazz) {
         Class compType = clazz.getComponentType();
         if (compType.isArray()) {
             throw new IllegalArgumentException("nested array not supported: " + clazz.getCanonicalName());
@@ -78,15 +72,14 @@ class CodegenImplArray extends CodegenBase {
                 "{{op}}", CodegenImplNative.genReadOp(compType));
     }
 
-    public static String genCollection(Class clazz, Type[] typeArgs) {
-        if (WITH_CAPACITY_COLLECTION_CLASSES.contains(clazz)) {
+    public static String gen(Class clazz, Type[] typeArgs) {
+        if (Utility.WITH_CAPACITY_COLLECTION_CLASSES.contains(clazz)) {
             return CodegenImplArray.genCollectionWithCapacity(clazz, typeArgs[0]);
         } else {
             return CodegenImplArray.genCollectionWithoutCapacity(clazz, typeArgs[0]);
         }
     }
 
-    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     private static String genCollectionWithCapacity(Class clazz, Type compType) {
         StringBuilder lines = new StringBuilder();
         append(lines, "{{clazz}} col = ({{clazz}})com.jsoniter.CodegenAccess.resetExistingObject(iter);");

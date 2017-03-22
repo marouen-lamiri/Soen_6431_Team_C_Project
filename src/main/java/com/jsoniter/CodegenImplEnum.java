@@ -3,8 +3,8 @@ package com.jsoniter;
 import java.util.*;
 
 class CodegenImplEnum extends CodegenBase{
-	//Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
-    public static String genEnum(Class clazz) {
+
+    public static String gen(Class clazz) {
         StringBuilder lines = new StringBuilder();
         append(lines, "if (iter.readNull()) { return null; }");
         append(lines, "com.jsoniter.Slice field = com.jsoniter.CodegenAccess.readSlice(iter);");
@@ -15,7 +15,6 @@ class CodegenImplEnum extends CodegenBase{
         return lines.toString();
     }
 
-    //Marouen: check if you can refactor the if (current == null) can be done in another way
     private static Map<Integer, Object> buildTriTree(List<Object> allConsts) {
         Map<Integer, Object> trieTree = new HashMap<Integer, Object>();
         for (Object e : allConsts) {

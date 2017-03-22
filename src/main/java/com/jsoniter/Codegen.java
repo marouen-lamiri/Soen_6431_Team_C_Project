@@ -77,7 +77,7 @@ class Codegen {
             clazz = (Class) type;
         }
         
-        decoder = CodegenImplNative.NATIVE_DECODERS.get(clazz);
+        decoder = Utility.NATIVE_DECODERS.get(clazz);
         if (decoder != null) 
         {
             return decoder;
@@ -265,22 +265,22 @@ class Codegen {
 
     private static String genSource(Class clazz, Type[] typeArgs) {
         if (clazz.isArray()) {
-            return CodegenImplArray.genArray(clazz);
+            return CodegenImplArray.gen(clazz);
         }
         if (Map.class.isAssignableFrom(clazz)) {
-            return CodegenImplMap.genMap(clazz, typeArgs);
+            return CodegenImplMap.gen(clazz, typeArgs);
         }
         if (Collection.class.isAssignableFrom(clazz)) {
-            return CodegenImplArray.genCollection(clazz, typeArgs);
+            return CodegenImplArray.gen(clazz, typeArgs);
         }
         if (clazz.isEnum()) {
-            return CodegenImplEnum.genEnum(clazz);
+            return CodegenImplEnum.gen(clazz);
         }
         ClassDescriptor desc = JsoniterSpi.getDecodingClassDescriptor(clazz, false);
         if (shouldUseStrictMode(desc)) {
-            return CodegenImplObjectStrict.genObjectUsingStrict(clazz, desc);
+            return CodegenImplObjectStrict.gen(clazz, desc);
         } else {
-            return CodegenImplObjectHash.genObjectUsingHash(clazz, desc);
+            return CodegenImplObjectHash.gen(clazz, desc);
         }
     }
 
