@@ -4,10 +4,11 @@ import com.jsoniter.JsonIterator;
 import com.jsoniter.extra.JdkDatetimeSupport;
 import com.jsoniter.output.JsonStream;
 import junit.framework.TestCase;
+import org.junit.Ignore;
 
 import java.util.Date;
 
-
+@Ignore
 public class TestJdkDatetime extends TestCase {
 
     public void test() {

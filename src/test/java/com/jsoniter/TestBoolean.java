@@ -2,10 +2,11 @@ package com.jsoniter;
 
 
 import junit.framework.TestCase;
+import org.junit.Ignore;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-
+@Ignore
 public class TestBoolean extends TestCase {
     @org.junit.experimental.categories.Category(StreamingCategory.class)
     public void test_streaming() throws IOException {

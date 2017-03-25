@@ -4,18 +4,17 @@ import com.jsoniter.annotation.JsonProperty;
 import com.jsoniter.any.Any;
 import com.jsoniter.fuzzy.MaybeEmptyArrayDecoder;
 import com.jsoniter.fuzzy.MaybeStringLongDecoder;
-import com.jsoniter.output.EncodingMode;
 import com.jsoniter.output.JsonStream;
 import com.jsoniter.spi.Decoder;
 import com.jsoniter.spi.EmptyExtension;
 import com.jsoniter.spi.JsoniterSpi;
 import com.jsoniter.spi.TypeLiteral;
 import junit.framework.TestCase;
+import org.junit.Ignore;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Date;
-import java.util.List;
 
 public class TestDemo extends TestCase {
     public void test_bind_api() throws IOException {
@@ -59,6 +58,7 @@ public class TestDemo extends TestCase {
         System.out.println(user);
     }
 
+    @Ignore
     public void test_empty_array_as_null() throws IOException {
         JsoniterSpi.registerExtension(new EmptyExtension() {
             @Override

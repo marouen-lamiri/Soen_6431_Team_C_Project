@@ -3,6 +3,7 @@ package com.jsoniter;
 import com.jsoniter.any.Any;
 import com.jsoniter.spi.JsonException;
 import junit.framework.TestCase;
+import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 
 import java.io.ByteArrayInputStream;
@@ -181,15 +182,4 @@ public class TestReadAny extends TestCase {
         }
     }
 
-    @Category(StreamingCategory.class)
-    public void test_read_any_in_streaming() throws IOException {
-        assertEquals(2, JsonIterator.parse(new ByteArrayInputStream("[1,2,3,4,5]".getBytes()), 2).readAny().toInt(1));
-        assertEquals(1, JsonIterator.parse(new ByteArrayInputStream("{\"field1\": 1}".getBytes()), 2).readAny().size());
-        JsonIterator iter = JsonIterator.parse(new ByteArrayInputStream("[1,2,[3, 4],5]".getBytes()), 2);
-        ArrayList<Any> elements = new ArrayList<Any>();
-        while (iter.readArray()) {
-            elements.add(iter.readAny());
-        }
-        assertEquals("[3, 4]", elements.get(2).toString());
-    }
 }

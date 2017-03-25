@@ -2,11 +2,13 @@ package com.jsoniter;
 
 import com.jsoniter.spi.JsonException;
 import junit.framework.TestCase;
+import org.junit.Ignore;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 @org.junit.experimental.categories.Category(StreamingCategory.class)
+@Ignore
 public class TestIO extends TestCase {
 
     public void test_read_byte() throws IOException {

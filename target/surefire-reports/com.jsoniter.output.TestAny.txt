@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.jsoniter.output.TestAny
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in com.jsoniter.output.TestAny
