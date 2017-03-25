@@ -156,7 +156,8 @@
                         <include>com.jsoniter.suite.ExtraTests</include>
                     </includes>
                 </configuration>
-            </plugin>git add
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
