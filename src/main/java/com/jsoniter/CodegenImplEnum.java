@@ -24,15 +24,7 @@ class CodegenImplEnum extends CodegenBase{
                     current = new HashMap<Byte, Object>();
                     trieTree.put(fromNameBytes.length, current);
                 }
-                for (int i = 0; i < fromNameBytes.length - 1; i++) {
-                    byte b = fromNameBytes[i];
-                    Map<Byte, Object> next = (Map<Byte, Object>) current.get(b);
-                    if (next == null) {
-                        next = new HashMap<Byte, Object>();
-                        current.put(b, next);
-                    }
-                    current = next;
-                }
+                 Utility.getByteObjectMap(fromNameBytes,current);
                 current.put(fromNameBytes[fromNameBytes.length - 1], e);
         }
         return trieTree;

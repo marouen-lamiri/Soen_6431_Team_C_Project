@@ -170,20 +170,6 @@ public class TestObject extends TestCase {
         public MyEnum field1;
     }
 
-    public void test_enum() throws IOException {
-//        JsonIterator.setMode(DecodingMode.DYNAMIC_MODE_AND_MATCH_FIELD_WITH_HASH);
-        TestObject5 obj = JsonIterator.deserialize("{\"field1\":\"HELLO\"}", TestObject5.class);
-        assertEquals(TestObject5.MyEnum.HELLO, obj.field1);
-        try {
-            JsonIterator.deserialize("{\"field1\":\"HELLO1\"}", TestObject5.class);
-            fail();
-        } catch (JsonException e) {
-        }
-        obj = JsonIterator.deserialize("{\"field1\":null}", TestObject5.class);
-        assertNull(obj.field1);
-        obj = JsonIterator.deserialize("{\"field1\":\"WOW\"}", TestObject5.class);
-        assertEquals(TestObject5.MyEnum.WOW, obj.field1);
-    }
 
     public static class TestObject6 {
         @JsonProperty(decoder = MaybeEmptyArrayDecoder.class)

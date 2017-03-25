@@ -290,4 +290,24 @@ public class Utility {
             }
         });
     }};
+
+    /**
+     * This method was duplicated, Hence we bring it to Utility class
+     * @param fromNameBytes
+     * @param current
+     * @return
+     */
+    public static Map<Byte, Object> getByteObjectMap(byte[] fromNameBytes, Map<Byte, Object> current) {
+        for (int i = 0; i < fromNameBytes.length - 1; i++) {
+            byte b = fromNameBytes[i];
+            Map<Byte, Object> next = (Map<Byte, Object>) current.get(b);
+            if (next == null) {
+                next = new HashMap<Byte, Object>();
+                current.put(b, next);
+            }
+            current = next;
+        }
+        return current;
+    }
+
 }
