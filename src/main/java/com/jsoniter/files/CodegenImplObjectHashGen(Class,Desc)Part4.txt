@@ -1,0 +1,3 @@
+}
+iter.skip();
+} while (com.jsoniter.CodegenAccess.nextTokenIsComma(iter));

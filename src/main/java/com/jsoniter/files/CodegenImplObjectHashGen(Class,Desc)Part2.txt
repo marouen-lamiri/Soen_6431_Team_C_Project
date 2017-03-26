@@ -1,0 +1,13 @@
+nextToken = com.jsoniter.CodegenAccess.readByte(iter);
+if (nextToken != '\"') {
+if (nextToken == '}') {
+return {{newInst}};
+} else {
+nextToken = com.jsoniter.CodegenAccess.nextToken(iter);
+if (nextToken == '}') {
+return {{newInst}};
+} else {
+com.jsoniter.CodegenAccess.unreadByte(iter);
+}
+} // end of if end
+} else { com.jsoniter.CodegenAccess.unreadByte(iter); }// end of if not quote

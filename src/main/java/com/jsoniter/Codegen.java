@@ -35,11 +35,6 @@ class Codegen {
         return gen(cacheKey, type);
     }
 
-    //Marouen: too big of a method that seems to do more than one thing
-    //Lack of spacing that makes it very hard to read and understand.
-    //Missing comments to explain what is going on in this method
-    //Name of function is not very intuitive, rename it to generate(String cacheKey, Type type)
-    //Should be divided into atomic excecutions to become more readable (instead of adding comments)
     private synchronized static Decoder gen(String cacheKey, Type type)
     {
        
@@ -50,11 +45,9 @@ class Codegen {
         
         List<Extension> extensions = JsoniterSpi.getExtensions();
         for (Extension extension : extensions) {
-        	//Marouen: Confusing (type = .. (type))
             type = extension.chooseImplementation(type);
         }
-        
-      //Marouen: Confusing (type = .. (type))
+
         type = chooseImpl(type);
         for (Extension extension : extensions) {
             decoder = extension.createDecoder(cacheKey, type);

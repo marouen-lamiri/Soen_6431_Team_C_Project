@@ -8,40 +8,12 @@ public class CodegenImplObjectHash extends CodegenBase {
 
     // the implementation is from dsljson, it is the fastest although has the risk not matching field strictly
     public static String gen(Class clazz, ClassDescriptor desc) {
-        StringBuilder lines = new StringBuilder();
-        // === if null, return null
-        append(lines, "java.lang.Object existingObj = com.jsoniter.CodegenAccess.resetExistingObject(iter);");
-        append(lines, "byte nextToken = com.jsoniter.CodegenAccess.readByte(iter);");
-        append(lines, "if (nextToken != '{') {");
-        append(lines, "if (nextToken == 'n') {");
-        append(lines, "com.jsoniter.CodegenAccess.skipFixedBytes(iter, 3);");
-        append(lines, "return null;");
-        append(lines, "} else {");
-        append(lines, "nextToken = com.jsoniter.CodegenAccess.nextToken(iter);");
-        append(lines, "if (nextToken == 'n') {");
-        append(lines, "com.jsoniter.CodegenAccess.skipFixedBytes(iter, 3);");
-        append(lines, "return null;");
-        append(lines, "}");
-        append(lines, "} // end of if null");
-        append(lines, "} // end of if {");
-        // === if empty, return empty
-        // ctor requires binding
+        StringBuilder lines = readFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part1.txt", clazz);
         for (Binding parameter : desc.ctor.parameters) {
             appendVarDef(lines, parameter);
         }
-        append(lines, "nextToken = com.jsoniter.CodegenAccess.readByte(iter);");
-        append(lines, "if (nextToken != '\"') {");
-        append(lines, "if (nextToken == '}') {");
-        append(lines, "return {{newInst}};");
-        append(lines, "} else {");
-        append(lines, "nextToken = com.jsoniter.CodegenAccess.nextToken(iter);");
-        append(lines, "if (nextToken == '}') {");
-        append(lines, "return {{newInst}};");
-        append(lines, "} else {");
-        append(lines, "com.jsoniter.CodegenAccess.unreadByte(iter);");
-        append(lines, "}");
-        append(lines, "} // end of if end");
-        append(lines, "} else { com.jsoniter.CodegenAccess.unreadByte(iter); }// end of if not quote");
+
+        appendReadFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part2.txt", clazz, lines);
         for (Binding field : desc.fields) {
             appendVarDef(lines, field);
         }
@@ -70,9 +42,9 @@ public class CodegenImplObjectHash extends CodegenBase {
                 return (x < y) ? -1 : ((x == y) ? 0 : 1);
             }
         });
-        // === bind more fields
-        append(lines, "do {");
-        append(lines, "switch (com.jsoniter.CodegenAccess.readObjectFieldAsHash(iter)) {");
+
+        appendReadFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part3.txt", clazz, lines);
+
         for (String fromName : fromNames) {
             int intHash = calcHash(fromName);
             if (intHash == 0) {
@@ -88,9 +60,8 @@ public class CodegenImplObjectHash extends CodegenBase {
             appendBindingSet(lines, desc, bindings.get(fromName));
             append(lines, "continue;");
         }
-        append(lines, "}");
-        append(lines, "iter.skip();");
-        append(lines, "} while (com.jsoniter.CodegenAccess.nextTokenIsComma(iter));");
+
+        appendReadFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part4.txt", clazz, lines);
         append(lines, CodegenImplNative.getTypeName(clazz) + " obj = {{newInst}};");
         for (Binding field : desc.fields) {
             append(lines, String.format("obj.%s = _%s_;", field.field.getName(), field.name));
@@ -99,7 +70,7 @@ public class CodegenImplObjectHash extends CodegenBase {
             append(lines, String.format("obj.%s(_%s_);", setter.method.getName(), setter.name));
         }
         appendWrappers(desc.wrappers, lines);
-        append(lines, "return obj;");
+        appendReadFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part5.txt", clazz, lines);
         return lines.toString()
                 .replace("{{clazz}}", clazz.getCanonicalName())
                 .replace("{{newInst}}", genNewInstCode(clazz, desc.ctor));

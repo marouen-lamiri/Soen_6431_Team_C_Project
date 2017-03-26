@@ -64,5 +64,4 @@ public class TestString extends TestCase {
         } catch (JsonException e) {
         }
     }
-
 }
