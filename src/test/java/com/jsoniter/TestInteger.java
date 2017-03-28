@@ -60,16 +60,7 @@ public class TestInteger extends TestCase {
         }
     }
 
-    @Ignore
-    @Category(StreamingCategory.class)
-    public void test_streaming() throws IOException {
-        isStreaming = true;
-        //test_positive_negative_int();
-        //test_positive_negative_long();
-//        test_max_min_int();
-        //      test_max_min_long();
-        //    test_large_number();
-    }
+    
 
     private int parseInt(String input) throws IOException {
         if (isStreaming) {
