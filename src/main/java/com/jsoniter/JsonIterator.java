@@ -99,11 +99,20 @@ public class JsonIterator implements Closeable {
         head--;
     }
 
+    public int peekstart(){
+    	 int peekStart = head - 10;
+         if (peekStart < 0) {
+             peekStart = 0;
+         }
+    	
+    	return peekStart;
+    }
     public final JsonException reportError(String op, String msg) {
-        int peekStart = head - 10;
+    	int peekStart=peekstart();
+        /*int peekStart = head - 10;
         if (peekStart < 0) {
             peekStart = 0;
-        }
+        }*/
         int peekSize = head - peekStart;
         if (head > tail) {
             peekSize = tail - peekStart;
@@ -113,10 +122,11 @@ public class JsonIterator implements Closeable {
     }
 
     public final String currentBuffer() {
-        int peekStart = head - 10;
+    	int peekStart=peekstart();
+       /* int peekStart = head - 10;
         if (peekStart < 0) {
             peekStart = 0;
-        }
+        }*/
         String peek = new String(buf, peekStart, head - peekStart);
         return "head: " + head + ", peek: " + peek + ", buf: " + new String(buf);
     }
