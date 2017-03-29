@@ -1,0 +1,4 @@
+if (iter.readNull()) { return null; }
+com.jsoniter.Slice field = com.jsoniter.CodegenAccess.readSlice(iter);
+switch (field.len()) {
+

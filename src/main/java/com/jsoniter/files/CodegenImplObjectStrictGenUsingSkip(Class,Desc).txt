@@ -1,0 +1,4 @@
+if (iter.readNull()) { return null; }
+{{clazz}} obj = {{newInst}};
+iter.skip();
+return obj;

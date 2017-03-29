@@ -1,0 +1,11 @@
+{{clazz}} map = ({{clazz}})com.jsoniter.CodegenAccess.resetExistingObject(iter);
+if (iter.readNull()) { return null; }
+if (map == null) { map = new {{clazz}}(); }
+if (!com.jsoniter.CodegenAccess.readObjectStart(iter)) {
+return map;
+}
+do {
+String field = com.jsoniter.CodegenAccess.readObjectFieldAsString(iter);
+map.put(field, {{op}});
+} while (com.jsoniter.CodegenAccess.nextToken(iter) == ',');
+return map;

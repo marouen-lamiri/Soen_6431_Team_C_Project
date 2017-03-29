@@ -1,0 +1,36 @@
+{{clazz}} col = ({{clazz}})com.jsoniter.CodegenAccess.resetExistingObject(iter);
+if (iter.readNull()) { com.jsoniter.CodegenAccess.resetExistingObject(iter); return null; }
+if (!com.jsoniter.CodegenAccess.readArrayStart(iter)) {
+return col == null ? new {{clazz}}(0): ({{clazz}})com.jsoniter.CodegenAccess.reuseCollection(col);
+}
+Object a1 = {{op}};
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+{{clazz}} obj = col == null ? new {{clazz}}(1): ({{clazz}})com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+return obj;
+}
+Object a2 = {{op}};
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+{{clazz}} obj = col == null ? new {{clazz}}(2): ({{clazz}})com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+return obj;
+}
+Object a3 = {{op}};
+if (com.jsoniter.CodegenAccess.nextToken(iter) != ',') {
+{{clazz}} obj = col == null ? new {{clazz}}(3): ({{clazz}})com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+obj.add(a3);
+return obj;
+}
+Object a4 = {{op}};
+{{clazz}} obj = col == null ? new {{clazz}}(8): ({{clazz}})com.jsoniter.CodegenAccess.reuseCollection(col);
+obj.add(a1);
+obj.add(a2);
+obj.add(a3);
+obj.add(a4);
+while (com.jsoniter.CodegenAccess.nextToken(iter) == ',') {
+obj.add({{op}});
+}
+return obj;

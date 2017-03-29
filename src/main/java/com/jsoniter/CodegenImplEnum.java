@@ -5,13 +5,9 @@ import java.util.*;
 class CodegenImplEnum extends CodegenBase{
 
     public static String gen(Class clazz) {
-        StringBuilder lines = new StringBuilder();
-        append(lines, "if (iter.readNull()) { return null; }");
-        append(lines, "com.jsoniter.Slice field = com.jsoniter.CodegenAccess.readSlice(iter);");
-        append(lines, "switch (field.len()) {");
+        StringBuilder lines = readFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplEnum(Class)Part1.txt", clazz);
         append(lines, renderTriTree(buildTriTree(Arrays.asList(clazz.getEnumConstants()))));
-        append(lines, "}"); // end of switch
-        append(lines, String.format("throw iter.reportError(\"decode enum\", field + \" is not valid enum for %s\");", clazz.getName()));
+        appendReadFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplEnum(Class)Part2.txt", clazz, lines);
         return lines.toString();
     }
 
@@ -42,7 +38,6 @@ class CodegenImplEnum extends CodegenBase{
         return switchBody.toString();
     }
 
-    //Marouen: WOW TO REVIEW, wirting code in a string is definitely weird
     private static void addFieldDispatch(
             StringBuilder lines, int len, int i, Map<Byte, Object> current, List<Byte> bytesToCompare) {
         for (Map.Entry<Byte, Object> entry : current.entrySet()) {

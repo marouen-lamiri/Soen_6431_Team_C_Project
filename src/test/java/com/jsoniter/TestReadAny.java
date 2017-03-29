@@ -182,4 +182,15 @@ public class TestReadAny extends TestCase {
         }
     }
 
+    public void test_readfile() throws IOException {
+        StringBuilder lines = CodegenBase.readFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplArrayGen(Class,Type)WithoutCollectionClasses.txt");
+        assertTrue(lines.length() > 0);
+    }
+
+    public void test_readfile_append() throws IOException {
+        StringBuilder part1 = CodegenBase.readFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part1.txt");
+        StringBuilder part2 = new StringBuilder(part1);
+        CodegenBase.appendReadFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectHashGen(Class,Desc)Part2.txt", null, part2);
+        assertTrue(part1.length() > 0 && part2.substring(0, part1.length()).toString().equals(part1.toString()) && part2.length() >= part1.length());
+    }
 }

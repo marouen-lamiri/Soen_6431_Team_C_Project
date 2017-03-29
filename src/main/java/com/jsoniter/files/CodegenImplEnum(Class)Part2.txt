@@ -1,0 +1,2 @@
+}
+throw iter.reportError("decode enum", field + " is not valid enum for %s"

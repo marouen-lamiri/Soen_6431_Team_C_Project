@@ -1,0 +1,2 @@
+do {
+switch (com.jsoniter.CodegenAccess.readObjectFieldAsHash(iter)) {

@@ -1,0 +1,54 @@
+com.jsoniter.CodegenAccess.resetExistingObject(iter);
+byte nextToken = com.jsoniter.CodegenAccess.readByte(iter);
+if (nextToken != '[') {
+if (nextToken == 'n') {
+com.jsoniter.CodegenAccess.skipFixedBytes(iter, 3);
+com.jsoniter.CodegenAccess.resetExistingObject(iter); return null;
+} else {
+nextToken = com.jsoniter.CodegenAccess.nextToken(iter);
+if (nextToken == 'n') {
+com.jsoniter.CodegenAccess.skipFixedBytes(iter, 3);
+com.jsoniter.CodegenAccess.resetExistingObject(iter); return null;
+}
+}
+}
+nextToken = com.jsoniter.CodegenAccess.nextToken(iter);
+if (nextToken == ']') {
+return new {{comp}}[0];
+}
+com.jsoniter.CodegenAccess.unreadByte(iter);
+{{comp}} a1 = {{op}};
+if (!com.jsoniter.CodegenAccess.nextTokenIsComma(iter)) {
+return new {{comp}}[]{ a1 };
+}
+{{comp}} a2 = {{op}};
+if (!com.jsoniter.CodegenAccess.nextTokenIsComma(iter)) {
+return new {{comp}}[]{ a1, a2 };
+}
+{{comp}} a3 = {{op}};
+if (!com.jsoniter.CodegenAccess.nextTokenIsComma(iter)) {
+return new {{comp}}[]{ a1, a2, a3 };
+}
+{{comp}} a4 = ({{comp}}) {{op}};
+if (!com.jsoniter.CodegenAccess.nextTokenIsComma(iter)) {
+return new {{comp}}[]{ a1, a2, a3, a4 };
+}
+{{comp}} a5 = ({{comp}}) {{op}};
+{{comp}}[] arr = new {{comp}}[10];
+arr[0] = a1;
+arr[1] = a2;
+arr[2] = a3;
+arr[3] = a4;
+arr[4] = a5;
+int i = 5;
+while (com.jsoniter.CodegenAccess.nextTokenIsComma(iter)) {
+if (i == arr.length) {
+{{comp}}[] newArr = new {{comp}}[arr.length * 2];
+System.arraycopy(arr, 0, newArr, 0, arr.length);
+arr = newArr;
+}
+arr[i++] = {{op}};
+}
+{{comp}}[] result = new {{comp}}[i];
+System.arraycopy(arr, 0, result, 0, i);
+return result;

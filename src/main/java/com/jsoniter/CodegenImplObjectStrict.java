@@ -309,11 +309,7 @@ class CodegenImplObjectStrict extends CodegenBase {
     }
 
     public static String genObjectUsingSkip(Class clazz, ConstructorDescriptor ctor) {
-        StringBuilder lines = new StringBuilder();
-        append(lines, "if (iter.readNull()) { return null; }");
-        append(lines, "{{clazz}} obj = {{newInst}};");
-        append(lines, "iter.skip();");
-        append(lines, "return obj;");
+        StringBuilder lines = readFile("src\\main\\java\\com\\jsoniter\\files\\CodegenImplObjectStrictGenUsingSkip(Class,Desc).txt", clazz);
         return lines.toString()
                 .replace("{{clazz}}", clazz.getCanonicalName())
                 .replace("{{newInst}}", CodegenImplObjectHash.genNewInstCode(clazz, ctor));

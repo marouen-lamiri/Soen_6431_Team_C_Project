@@ -1,0 +1,14 @@
+java.lang.Object existingObj = com.jsoniter.CodegenAccess.resetExistingObject(iter);
+byte nextToken = com.jsoniter.CodegenAccess.readByte(iter);
+if (nextToken != '{') {
+if (nextToken == 'n') {
+com.jsoniter.CodegenAccess.skipFixedBytes(iter, 3);
+return null;
+} else {
+nextToken = com.jsoniter.CodegenAccess.nextToken(iter);
+if (nextToken == 'n') {
+com.jsoniter.CodegenAccess.skipFixedBytes(iter, 3);
+return null;
+}
+} // end of if null
+} // end of if {

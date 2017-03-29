@@ -4,6 +4,10 @@ import com.jsoniter.spi.Binding;
 import com.jsoniter.spi.ClassDescriptor;
 import com.jsoniter.spi.WrapperDescriptor;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -22,6 +26,42 @@ public class CodegenBase {
     protected static void append(StringBuilder lines, String str) {
         lines.append(str);
         lines.append("\n");
+    }
+
+    protected static StringBuilder appendReadFile(String fileName, Class clazz, StringBuilder lines) {
+        StringBuilder addLines = readFile(fileName, clazz);
+        lines.append(addLines);
+        return lines;
+    }
+
+    protected static StringBuilder readFile(String fileName) {
+       return readFile(fileName, null);
+    }
+
+    protected static StringBuilder readFile(String fileName, Class clazz) {
+        String readLine = null;
+        StringBuilder lines = new StringBuilder();
+        try {
+            FileReader fileReader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while((readLine = bufferedReader.readLine()) != null) {
+                if( clazz != null )
+                {
+                    append(lines, String.format(readLine, clazz.getName() ) );
+                } else {
+                    append(lines, readLine);
+                }
+
+            }
+            bufferedReader.close();
+        }
+        catch(FileNotFoundException ex) {
+            System.out.println( "Unable to open file '" + fileName + "'");
+        }
+        catch(IOException ex) {
+            System.out.println( "Error reading file '" + fileName + "'");
+        }
+        return lines;
     }
 
     protected static void appendInvocation(StringBuilder code, List<Binding> params) {
