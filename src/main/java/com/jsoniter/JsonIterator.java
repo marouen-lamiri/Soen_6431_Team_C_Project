@@ -107,16 +107,27 @@ public class JsonIterator implements Closeable {
     	
     	return peekStart;
     }
+    
+public int peeksize(int peekStart){
+	int peekSize = head - peekStart;
+    if (head > tail) {
+        peekSize = tail - peekStart;
+    }
+    return peekSize;
+}
+
+    
     public final JsonException reportError(String op, String msg) {
     	int peekStart=peekstart();
+    	int peekSize=peeksize(peekStart);
         /*int peekStart = head - 10;
         if (peekStart < 0) {
             peekStart = 0;
         }*/
-        int peekSize = head - peekStart;
+        /*int peekSize = head - peekStart;
         if (head > tail) {
             peekSize = tail - peekStart;
-        }
+        }*/
         String peek = new String(buf, peekStart, peekSize);
         throw new JsonException(op + ": " + msg + ", head: " + head + ", peek: " + peek + ", buf: " + new String(buf));
     }
