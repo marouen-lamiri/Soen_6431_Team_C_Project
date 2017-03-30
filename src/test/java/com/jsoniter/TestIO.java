@@ -7,7 +7,6 @@ import org.junit.Ignore;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-@org.junit.experimental.categories.Category(StreamingCategory.class)
 @Ignore
 public class TestIO extends TestCase {
 
