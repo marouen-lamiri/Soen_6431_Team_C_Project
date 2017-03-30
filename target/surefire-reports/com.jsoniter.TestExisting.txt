@@ -1,4 +1,34 @@
 -------------------------------------------------------------------------------
 Test set: com.jsoniter.TestExisting
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in com.jsoniter.TestExisting
+Tests run: 5, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.09 sec <<< FAILURE! - in com.jsoniter.TestExisting
+test_reuse_list(com.jsoniter.TestExisting)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+
+test_reuse_map(com.jsoniter.TestExisting)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.Object], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.Object], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+
+test_reuse_linked_list(com.jsoniter.TestExisting)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+

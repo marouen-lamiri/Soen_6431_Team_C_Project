@@ -1,101 +1,296 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.jsoniter.TestArray" time="0.075" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.jsoniter.TestArray" time="0.058" tests="10" errors="8" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib"/>
-    <property name="java.vm.version" value="25.65-b01"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.101-b13"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/mmokarian/dev/school/maintenance/P/Soen_6431_Team_C_Project"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/aakashmalhotra/work/Soen_6431_Team_C_Project"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="user.country" value="US"/>
+    <property name="user.country" value="CA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/mmokarian/dev/school/maintenance/P/Soen_6431_Team_C_Project"/>
-    <property name="java.runtime.version" value="1.8.0_65-b17"/>
+    <property name="user.dir" value="/Users/aakashmalhotra/work/Soen_6431_Team_C_Project"/>
+    <property name="java.runtime.version" value="1.8.0_101-b13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="java.io.tmpdir" value="/var/folders/p7/qz2j1yc54cq0dnjl4jynvzvmryzw_4/T/"/>
+    <property name="java.io.tmpdir" value="/var/folders/9h/hdxy4fc552bgz0pjhbtm2_f80000gn/T/"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="classworlds.conf" value="/usr/local/Cellar/maven/3.3.9/libexec/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.library.path" value="/Users/mmokarian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.library.path" value="/Users/aakashmalhotra/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.10.5"/>
-    <property name="user.home" value="/Users/mmokarian"/>
+    <property name="os.version" value="10.12.3"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/aakashmalhotra"/>
     <property name="user.timezone" value="America/Montreal"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="mmokarian"/>
+    <property name="user.name" value="aakashmalhotra"/>
     <property name="java.class.path" value="/usr/local/Cellar/maven/3.3.9/libexec/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_65"/>
-    <property name="java.ext.dirs" value="/Users/mmokarian/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
-    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/classes"/>
+    <property name="java.version" value="1.8.0_101"/>
+    <property name="java.ext.dirs" value="/Users/aakashmalhotra/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.3.9/libexec"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.007"/>
-  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.022"/>
-  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.014"/>
-  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.004"/>
-  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.009"/>
-  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.128"/>
-  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.048"/>
-  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.005"/>
+  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.015"/>
+  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [D with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [D with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_null(TestArray.java:170)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_null(TestArray.java:170)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_null(TestArray.java:170)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.017"/>
+  <testcase name="test_null" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [D with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [D with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_null(TestArray.java:170)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_null(TestArray.java:170)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_null(TestArray.java:170)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.019"/>
+  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.002">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_five_elements(TestArray.java:154)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_five_elements(TestArray.java:154)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_five_elements(TestArray.java:154)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.011"/>
+  <testcase name="test_five_elements" classname="com.jsoniter.TestArray" time="0.029">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_five_elements(TestArray.java:154)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_five_elements(TestArray.java:154)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_five_elements(TestArray.java:154)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0"/>
+  <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_four_elements(TestArray.java:126)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_four_elements(TestArray.java:126)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_four_elements(TestArray.java:126)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0.004"/>
+  <testcase name="test_four_elements" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_four_elements(TestArray.java:126)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_four_elements(TestArray.java:126)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_four_elements(TestArray.java:126)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_iterator" classname="com.jsoniter.TestArray" time="0.006"/>
   <testcase name="test_iterator" classname="com.jsoniter.TestArray" time="0.001"/>
   <testcase name="test_iterator" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_iterator" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_iterator" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.014"/>
-  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.007"/>
-  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.046"/>
-  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.004"/>
-  <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0"/>
+  <testcase name="test_iterator" classname="com.jsoniter.TestArray" time="0.002"/>
+  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.013"/>
+  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.013"/>
+  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.006"/>
+  <testcase name="test_array_lazy_any_to_string" classname="com.jsoniter.TestArray" time="0.02"/>
+  <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0.002"/>
+  <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_one_element(TestArray.java:42)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_one_element(TestArray.java:42)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_one_element(TestArray.java:42)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0.048"/>
+  <testcase name="test_one_element" classname="com.jsoniter.TestArray" time="0">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_one_element(TestArray.java:42)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_one_element(TestArray.java:42)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_one_element(TestArray.java:42)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.006"/>
-  <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.009"/>
-  <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.006"/>
-  <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0"/>
+  <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [Z with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [Z with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_boolean_array(TestArray.java:175)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_boolean_array(TestArray.java:175)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_boolean_array(TestArray.java:175)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.001"/>
+  <testcase name="test_boolean_array" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [Z with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [Z with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_boolean_array(TestArray.java:175)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_boolean_array(TestArray.java:175)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_boolean_array(TestArray.java:175)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0.001"/>
+  <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_three_elements(TestArray.java:100)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_three_elements(TestArray.java:100)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_three_elements(TestArray.java:100)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0"/>
+  <testcase name="test_three_elements" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_three_elements(TestArray.java:100)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_three_elements(TestArray.java:100)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_three_elements(TestArray.java:100)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0"/>
+  <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0.002">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_two_elements(TestArray.java:74)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_two_elements(TestArray.java:74)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_two_elements(TestArray.java:74)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0.001"/>
-  <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0.006"/>
+  <testcase name="test_two_elements" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_two_elements(TestArray.java:74)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_two_elements(TestArray.java:74)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_two_elements(TestArray.java:74)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0.001"/>
+  <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_empty_array(TestArray.java:25)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_empty_array(TestArray.java:25)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_empty_array(TestArray.java:25)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0"/>
-  <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0.005"/>
-  <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0.024"/>
-  <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0"/>
+  <testcase name="test_empty_array" classname="com.jsoniter.TestArray" time="0.001">
+    <error message="failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [I with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestArray.test_empty_array(TestArray.java:25)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestArray.test_empty_array(TestArray.java:25)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestArray.test_empty_array(TestArray.java:25)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class).txt'
+]]></system-out>
+  </testcase>
 </testsuite>

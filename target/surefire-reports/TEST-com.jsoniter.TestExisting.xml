@@ -1,81 +1,223 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.jsoniter.TestExisting" time="0.004" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.jsoniter.TestExisting" time="0.09" tests="5" errors="3" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib"/>
-    <property name="java.vm.version" value="25.65-b01"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.101-b13"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/mmokarian/dev/school/maintenance/P/Soen_6431_Team_C_Project"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/aakashmalhotra/work/Soen_6431_Team_C_Project"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="user.country" value="US"/>
+    <property name="user.country" value="CA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/mmokarian/dev/school/maintenance/P/Soen_6431_Team_C_Project"/>
-    <property name="java.runtime.version" value="1.8.0_65-b17"/>
+    <property name="user.dir" value="/Users/aakashmalhotra/work/Soen_6431_Team_C_Project"/>
+    <property name="java.runtime.version" value="1.8.0_101-b13"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/endorsed"/>
     <property name="os.arch" value="x86_64"/>
-    <property name="java.io.tmpdir" value="/var/folders/p7/qz2j1yc54cq0dnjl4jynvzvmryzw_4/T/"/>
+    <property name="java.io.tmpdir" value="/var/folders/9h/hdxy4fc552bgz0pjhbtm2_f80000gn/T/"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="classworlds.conf" value="/usr/local/Cellar/maven/3.3.9/libexec/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.library.path" value="/Users/mmokarian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.library.path" value="/Users/aakashmalhotra/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.10.5"/>
-    <property name="user.home" value="/Users/mmokarian"/>
+    <property name="os.version" value="10.12.3"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/aakashmalhotra"/>
     <property name="user.timezone" value="America/Montreal"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="mmokarian"/>
+    <property name="user.name" value="aakashmalhotra"/>
     <property name="java.class.path" value="/usr/local/Cellar/maven/3.3.9/libexec/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_65"/>
-    <property name="java.ext.dirs" value="/Users/mmokarian/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
-    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/classes"/>
+    <property name="java.version" value="1.8.0_101"/>
+    <property name="java.ext.dirs" value="/Users/aakashmalhotra/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.3.9/libexec"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.007"/>
-  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.015"/>
-  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.021"/>
-  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.003"/>
-  <testcase name="test_direct_reuse" classname="com.jsoniter.TestExisting" time="0.001"/>
+  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.004"/>
+  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.003">
+    <error message="failed to generate decoder for: class com.jsoniter.TestExisting$TestObj1 with [], exception: javassist.CannotCompileException: [source error] syntax error near &quot;ull;&#10;case 1195428815&quot;&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.lang.String _field1_ = null;&#10;java.lang.String _field2_ = null;&#10;case 1195428815: &#10;_field2_ = (java.lang.String)iter.readString();&#10;continue;&#10;case 1212206434: &#10;_field1_ = (java.lang.String)iter.readString();&#10;continue;&#10;com.jsoniter.TestExisting.TestObj1 obj = (existingObj == null ? new com.jsoniter.TestExisting.TestObj1() : (com.jsoniter.TestExisting.TestObj1)existingObj);&#10;obj.field1 = _field1_;&#10;obj.field2 = _field2_;&#10;}" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class com.jsoniter.TestExisting$TestObj1 with [], exception: javassist.CannotCompileException: [source error] syntax error near "ull;
+case 1195428815"
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.lang.String _field1_ = null;
+java.lang.String _field2_ = null;
+case 1195428815: 
+_field2_ = (java.lang.String)iter.readString();
+continue;
+case 1212206434: 
+_field1_ = (java.lang.String)iter.readString();
+continue;
+com.jsoniter.TestExisting.TestObj1 obj = (existingObj == null ? new com.jsoniter.TestExisting.TestObj1() : (com.jsoniter.TestExisting.TestObj1)existingObj);
+obj.field1 = _field1_;
+obj.field2 = _field2_;
+}
+	at com.jsoniter.TestExisting.test_indirect_reuse(TestExisting.java:44)
+Caused by: javassist.CannotCompileException: 
+[source error] syntax error near "ull;
+case 1195428815"
+	at com.jsoniter.TestExisting.test_indirect_reuse(TestExisting.java:44)
+Caused by: javassist.compiler.SyntaxError: 
+syntax error near "ull;
+case 1195428815"
+	at com.jsoniter.TestExisting.test_indirect_reuse(TestExisting.java:44)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part1.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part2.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part3.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part1.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part2.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part3.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part4.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part5.txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.004"/>
+  <testcase name="test_indirect_reuse" classname="com.jsoniter.TestExisting" time="0.087"/>
   <testcase name="test_direct_reuse" classname="com.jsoniter.TestExisting" time="0"/>
+  <testcase name="test_direct_reuse" classname="com.jsoniter.TestExisting" time="0.002">
+    <error message="failed to generate decoder for: class com.jsoniter.TestExisting$TestObj1 with [], exception: javassist.CannotCompileException: [source error] syntax error near &quot;ull;&#10;case 1195428815&quot;&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.lang.String _field1_ = null;&#10;java.lang.String _field2_ = null;&#10;case 1195428815: &#10;_field2_ = (java.lang.String)iter.readString();&#10;continue;&#10;case 1212206434: &#10;_field1_ = (java.lang.String)iter.readString();&#10;continue;&#10;com.jsoniter.TestExisting.TestObj1 obj = (existingObj == null ? new com.jsoniter.TestExisting.TestObj1() : (com.jsoniter.TestExisting.TestObj1)existingObj);&#10;obj.field1 = _field1_;&#10;obj.field2 = _field2_;&#10;}" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class com.jsoniter.TestExisting$TestObj1 with [], exception: javassist.CannotCompileException: [source error] syntax error near "ull;
+case 1195428815"
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { java.lang.String _field1_ = null;
+java.lang.String _field2_ = null;
+case 1195428815: 
+_field2_ = (java.lang.String)iter.readString();
+continue;
+case 1212206434: 
+_field1_ = (java.lang.String)iter.readString();
+continue;
+com.jsoniter.TestExisting.TestObj1 obj = (existingObj == null ? new com.jsoniter.TestExisting.TestObj1() : (com.jsoniter.TestExisting.TestObj1)existingObj);
+obj.field1 = _field1_;
+obj.field2 = _field2_;
+}
+	at com.jsoniter.TestExisting.test_direct_reuse(TestExisting.java:28)
+Caused by: javassist.CannotCompileException: 
+[source error] syntax error near "ull;
+case 1195428815"
+	at com.jsoniter.TestExisting.test_direct_reuse(TestExisting.java:28)
+Caused by: javassist.compiler.SyntaxError: 
+syntax error near "ull;
+case 1195428815"
+	at com.jsoniter.TestExisting.test_direct_reuse(TestExisting.java:28)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part1.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part2.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part3.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part4.txt'
+Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplObjectHashGen(Class,Desc)Part5.txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_direct_reuse" classname="com.jsoniter.TestExisting" time="0"/>
   <testcase name="test_direct_reuse" classname="com.jsoniter.TestExisting" time="0"/>
   <testcase name="test_reuse_list" classname="com.jsoniter.TestExisting" time="0"/>
-  <testcase name="test_reuse_list" classname="com.jsoniter.TestExisting" time="0.001"/>
+  <testcase name="test_reuse_list" classname="com.jsoniter.TestExisting" time="0.001">
+    <error message="failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class,Type)WithCollectionClasses.txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_reuse_list" classname="com.jsoniter.TestExisting" time="0"/>
-  <testcase name="test_reuse_list" classname="com.jsoniter.TestExisting" time="0"/>
+  <testcase name="test_reuse_list" classname="com.jsoniter.TestExisting" time="0.001">
+    <error message="failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_list(TestExisting.java:53)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class,Type)WithCollectionClasses.txt'
+]]></system-out>
+  </testcase>
+  <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0.001"/>
+  <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0.002">
+    <error message="failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.Object], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.Object], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.Object], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.Object], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplMapGen(Class,Type).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0"/>
-  <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0.005"/>
-  <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0.003"/>
-  <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0"/>
+  <testcase name="test_reuse_map" classname="com.jsoniter.TestExisting" time="0.001">
+    <error message="failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.Object], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.Object], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.Object], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.Object], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_map(TestExisting.java:68)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplMapGen(Class,Type).txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_reuse_linked_list" classname="com.jsoniter.TestExisting" time="0"/>
-  <testcase name="test_reuse_linked_list" classname="com.jsoniter.TestExisting" time="0"/>
-  <testcase name="test_reuse_linked_list" classname="com.jsoniter.TestExisting" time="0"/>
+  <testcase name="test_reuse_linked_list" classname="com.jsoniter.TestExisting" time="0.001">
+    <error message="failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class,Type)WithoutCollectionClasses.txt'
+]]></system-out>
+  </testcase>
   <testcase name="test_reuse_linked_list" classname="com.jsoniter.TestExisting" time="0.001"/>
+  <testcase name="test_reuse_linked_list" classname="com.jsoniter.TestExisting" time="0.001">
+    <error message="failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement&#10;public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }" type="com.jsoniter.spi.JsonException">com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestExisting.test_reuse_linked_list(TestExisting.java:60)
+</error>
+    <system-out><![CDATA[Unable to open file 'src\main\java\com\jsoniter\files\CodegenImplArrayGen(Class,Type)WithoutCollectionClasses.txt'
+]]></system-out>
+  </testcase>
 </testsuite>
