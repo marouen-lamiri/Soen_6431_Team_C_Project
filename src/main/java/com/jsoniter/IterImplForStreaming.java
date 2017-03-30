@@ -1,7 +1,6 @@
 package com.jsoniter;
 
 import com.jsoniter.any.Any;
-import com.jsoniter.Utility;
 import java.io.IOException;
 
 class IterImplForStreaming {

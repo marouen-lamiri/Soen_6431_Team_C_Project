@@ -1,12 +1,7 @@
 package com.jsoniter;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.*;
 
+import java.lang.reflect.Type;
 class CodegenImplArray extends CodegenBase {
 
     public static String gen(Class clazz) {

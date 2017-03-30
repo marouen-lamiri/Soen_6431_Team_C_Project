@@ -2,17 +2,14 @@ package com.jsoniter;
 
 import com.jsoniter.any.Any;
 import com.jsoniter.spi.JsonException;
-import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
 
 import java.io.IOException;
 
 class IterImpl {
 
     public static final int readObjectFieldAsHash(JsonIterator iter) throws IOException {
-        if (readByte(iter) != '"') {
-            if (nextToken(iter) != '"') {
+        if (readByte(iter) != '"' && nextToken(iter) != '"') {
                 throw iter.reportError("readObjectFieldAsHash", "expect \"");
-            }
         }
         long hash = Utility.FNV_PRIME;
         int i = iter.head;
@@ -25,10 +22,8 @@ class IterImpl {
             hash *= Utility.FNV_MULTIPLIER;
         }
         iter.head = i + 1;
-        if (readByte(iter) != ':') {
-            if (nextToken(iter) != ':') {
+        if (readByte(iter) != ':' && nextToken(iter) != ':') {
                 throw iter.reportError("readObjectFieldAsHash", "expect :");
-            }
         }
         return (int) hash;
     }

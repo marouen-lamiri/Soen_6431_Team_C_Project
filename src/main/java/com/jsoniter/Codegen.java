@@ -157,11 +157,7 @@ class Codegen {
         if (Collection.class.isAssignableFrom(clazz)) 
         {
             Type compType = Object.class;
-            if (typeArgs.length == 0) 
-            {
-                // default to List<Object>
-            } 
-            else if (typeArgs.length == 1) 
+             if (typeArgs.length == 1)
             {
                 compType = typeArgs[0];
             } 
@@ -189,9 +185,7 @@ class Codegen {
         if (Map.class.isAssignableFrom(clazz)) {
             Type keyType = String.class;
             Type valueType = Object.class;
-            if (typeArgs.length == 0) {
-                // default to Map<String, Object>
-            } else if (typeArgs.length == 2) {
+            if (typeArgs.length == 2) {
                 keyType = typeArgs[0];
                 valueType = typeArgs[1];
             } else {
