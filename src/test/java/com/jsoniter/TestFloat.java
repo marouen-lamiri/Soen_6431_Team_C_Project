@@ -42,13 +42,7 @@ public class TestFloat extends TestCase {
         assertEquals(720368.54775807f, parseFloat("720368.547758075,"), 0.01f);
         assertEquals(720368.54775807d, parseDouble("720368.547758075,"), 0.01f);
     }
-    @Ignore
-    @Category(StreamingCategory.class)
-    public void test_streaming() throws IOException {
-        isStreaming = true;
-        test_positive_negative();
-        test_decimal_places();
-    }
+   
 
     private float parseFloat(String input) throws IOException {
         if (isStreaming) {
