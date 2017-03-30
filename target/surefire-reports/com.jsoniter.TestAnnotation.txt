@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: com.jsoniter.TestAnnotation
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 sec - in com.jsoniter.TestAnnotation
+Tests run: 18, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.564 sec <<< FAILURE! - in com.jsoniter.TestAnnotation
+test_specify_property(com.jsoniter.TestAnnotation)  Time elapsed: 0.025 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestAnnotation.test_specify_property(TestAnnotation.java:251)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestAnnotation.test_specify_property(TestAnnotation.java:251)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestAnnotation.test_specify_property(TestAnnotation.java:251)
+

@@ -1,4 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: com.jsoniter.TestCustomizeType
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in com.jsoniter.TestCustomizeType
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.079 sec <<< FAILURE! - in com.jsoniter.TestCustomizeType
+test_as_array_element(com.jsoniter.TestCustomizeType)  Time elapsed: 0.002 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: class [Lcom.jsoniter.TestCustomizeType$MyDate; with [], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestCustomizeType.test_as_array_element(TestCustomizeType.java:49)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestCustomizeType.test_as_array_element(TestCustomizeType.java:49)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestCustomizeType.test_as_array_element(TestCustomizeType.java:49)
+

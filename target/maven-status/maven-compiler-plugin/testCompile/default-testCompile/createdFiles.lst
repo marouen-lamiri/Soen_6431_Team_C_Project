@@ -5,7 +5,6 @@ com/jsoniter/output/TestAnnotation$TestObject3.class
 com/jsoniter/TestGenerics.class
 com/jsoniter/TestObject$TestObject5.class
 com/jsoniter/any/TestMap.class
-com/jsoniter/StreamingCategory.class
 com/jsoniter/TestGenerics$5.class
 com/jsoniter/TestObject$IDependenceInjectedObject.class
 com/jsoniter/TestObject$PublicSuper.class
