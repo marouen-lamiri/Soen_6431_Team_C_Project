@@ -1,4 +1,144 @@
 -------------------------------------------------------------------------------
 Test set: com.jsoniter.TestGenerics
 -------------------------------------------------------------------------------
-Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in com.jsoniter.TestGenerics
+Tests run: 16, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.041 sec <<< FAILURE! - in com.jsoniter.TestGenerics
+test_string_list(com.jsoniter.TestGenerics)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_string_list(TestGenerics.java:29)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_string_list(TestGenerics.java:29)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_string_list(TestGenerics.java:29)
+
+test_linked_list(com.jsoniter.TestGenerics)  Time elapsed: 0 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_linked_list(TestGenerics.java:36)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_linked_list(TestGenerics.java:36)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_linked_list(TestGenerics.java:36)
+
+test_int_list(com.jsoniter.TestGenerics)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_int_list(TestGenerics.java:22)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_int_list(TestGenerics.java:22)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_int_list(TestGenerics.java:22)
+
+test_list_of_list(com.jsoniter.TestGenerics)  Time elapsed: 0.002 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_list_of_list(TestGenerics.java:57)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_list_of_list(TestGenerics.java:57)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_list_of_list(TestGenerics.java:57)
+
+test_string_map(com.jsoniter.TestGenerics)  Time elapsed: 0.002 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.String], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_string_map(TestGenerics.java:50)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_string_map(TestGenerics.java:50)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_string_map(TestGenerics.java:50)
+
+test_string_set(com.jsoniter.TestGenerics)  Time elapsed: 0.002 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.HashSet} with [class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_string_set(TestGenerics.java:43)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_string_set(TestGenerics.java:43)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_string_set(TestGenerics.java:43)
+
+test_complex_object(com.jsoniter.TestGenerics)  Time elapsed: 0.005 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_complex_object(TestGenerics.java:64)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_complex_object(TestGenerics.java:64)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_complex_object(TestGenerics.java:64)
+
+test_string_list(com.jsoniter.TestGenerics)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_string_list(TestGenerics.java:29)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_string_list(TestGenerics.java:29)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_string_list(TestGenerics.java:29)
+
+test_linked_list(com.jsoniter.TestGenerics)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.LinkedList} with [class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_linked_list(TestGenerics.java:36)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_linked_list(TestGenerics.java:36)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_linked_list(TestGenerics.java:36)
+
+test_int_list(com.jsoniter.TestGenerics)  Time elapsed: 0.002 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_int_list(TestGenerics.java:22)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_int_list(TestGenerics.java:22)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_int_list(TestGenerics.java:22)
+
+test_list_of_list(com.jsoniter.TestGenerics)  Time elapsed: 0.009 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_list_of_list(TestGenerics.java:57)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_list_of_list(TestGenerics.java:57)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_list_of_list(TestGenerics.java:57)
+
+test_string_map(com.jsoniter.TestGenerics)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String, class java.lang.String], ownerType=null, rawType=java.util.HashMap} with [class java.lang.String, class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_string_map(TestGenerics.java:50)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_string_map(TestGenerics.java:50)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_string_map(TestGenerics.java:50)
+
+test_string_set(com.jsoniter.TestGenerics)  Time elapsed: 0.001 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.String], ownerType=null, rawType=java.util.HashSet} with [class java.lang.String], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_string_set(TestGenerics.java:43)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_string_set(TestGenerics.java:43)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_string_set(TestGenerics.java:43)
+
+test_complex_object(com.jsoniter.TestGenerics)  Time elapsed: 0.004 sec  <<< ERROR!
+com.jsoniter.spi.JsonException: 
+failed to generate decoder for: ParameterizedTypeImpl{actualTypeArguments=[class java.lang.Integer], ownerType=null, rawType=java.util.ArrayList} with [class java.lang.Integer], exception: javassist.CannotCompileException: [source error] no return statement
+public static java.lang.Object decode_(com.jsoniter.JsonIterator iter) throws java.io.IOException { }
+	at com.jsoniter.TestGenerics.test_complex_object(TestGenerics.java:64)
+Caused by: javassist.CannotCompileException: [source error] no return statement
+	at com.jsoniter.TestGenerics.test_complex_object(TestGenerics.java:64)
+Caused by: javassist.compiler.CompileError: no return statement
+	at com.jsoniter.TestGenerics.test_complex_object(TestGenerics.java:64)
+

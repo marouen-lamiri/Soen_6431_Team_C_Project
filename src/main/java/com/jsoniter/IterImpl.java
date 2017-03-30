@@ -312,7 +312,7 @@ class IterImpl {
             int i = iter.head;
             int ind2 = Utility.intDigits[iter.buf[i]];
             if (ind2 == Utility.INVALID_CHAR_FOR_NUMBER) {
-                iter.head = i;
+                //Removed a self-assignment, as i is already equal to iter.head two lines of code above the current line
                 return ind;
             }
             int ind3 = Utility.intDigits[iter.buf[++i]];
@@ -370,7 +370,7 @@ class IterImpl {
             int i = iter.head;
             int ind2 = Utility.intDigits[iter.buf[i]];
             if (ind2 == Utility.INVALID_CHAR_FOR_NUMBER) {
-                iter.head = i;
+                //Removed a self-assignment, as i is already equal to iter.head two lines of code above the current line
                 return ind;
             }
             int ind3 = Utility.intDigits[iter.buf[++i]];

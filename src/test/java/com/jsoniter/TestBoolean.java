@@ -8,7 +8,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 @Ignore
 public class TestBoolean extends TestCase {
-    @org.junit.experimental.categories.Category(StreamingCategory.class)
     public void test_streaming() throws IOException {
         JsonIterator iter = JsonIterator.parse(new ByteArrayInputStream("[true,false,null,true]".getBytes()), 3);
         iter.readArray();
