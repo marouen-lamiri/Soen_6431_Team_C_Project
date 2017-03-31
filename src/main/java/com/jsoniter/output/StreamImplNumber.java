@@ -31,8 +31,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package com.jsoniter.output;
 
-import com.jsoniter.Utility;
-
 import java.io.IOException;
 
 class StreamImplNumber {

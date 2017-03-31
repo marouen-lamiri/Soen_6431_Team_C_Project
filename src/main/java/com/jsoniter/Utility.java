@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * Created by Marouen's Laptop on 11/03/2017.
  */
-//Class that contains some variables used across the project
+//Class that contains some variables used across the package
 public class Utility {
     public final static int LIMIT_VALUE = 63;
     public final static int LIMIT_DIGIT = 9;

@@ -2,7 +2,6 @@ package com.jsoniter.extra;
 
 import com.jsoniter.JsonIterator;
 import com.jsoniter.Slice;
-import com.jsoniter.Utility;
 import com.jsoniter.output.JsonStream;
 
 import java.io.IOException;

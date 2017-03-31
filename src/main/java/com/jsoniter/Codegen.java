@@ -178,10 +178,7 @@ class Codegen {
             }
             return new ParameterizedTypeImpl(new Type[]{compType}, null, clazz);  
         }
-        
-        //Marouen: Duplicated code (very similar code than the above)
-        //Differences is that we go from List<Integer> to map<String, String>
-        //Maybe we can improve it.
+
         if (Map.class.isAssignableFrom(clazz)) {
             Type keyType = String.class;
             Type valueType = Object.class;
